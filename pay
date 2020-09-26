@@ -1,0 +1,14 @@
+fname=input('Enter the file name: ')
+fhand=open(fname)
+lst=list()
+hour=dict()
+for fh in fhand:
+    if fh.startswith('From '):
+        lh=fh.split()
+        time=lh[5]
+        t=time.split(':')
+        lst.append(t[0])
+for h in lst:
+    hour[h]=hour.get(h,0)+1
+for k,v in sorted(hour.items()):
+    print(k,v)            
