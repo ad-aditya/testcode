@@ -1,0 +1,14 @@
+import re
+fname=input('Enter the file name: ')
+fhand=open(fname)
+num=list()
+count=0
+for fh in fhand:
+    x=re.findall('[0-9]+',fh)
+    for n in x:
+        count=count+1
+        val=int(n)
+        num.append(val)
+print('The no. of values is',count)
+tot=sum(num)
+print('Sum of all integer values in the file:',tot)
