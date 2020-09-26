@@ -1,0 +1,17 @@
+fname=input('Enter the file name: ')
+fhand=open(fname)
+lst=list()
+mail=dict()
+for fh in fhand:
+    if fh.startswith('From '):
+        lh=fh.split()
+        lst.append(lh[1])
+for m in lst:
+    mail[m]=mail.get(m,0)+1
+bigmail=0
+max=0
+for k,v in mail.items():
+    if v == 0 or v>max:
+        bigmail=k
+        max=v
+print(bigmail,max)
