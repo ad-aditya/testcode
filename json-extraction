@@ -1,0 +1,19 @@
+import urllib.parse, urllib.request, urllib.error
+import json
+import ssl
+
+tot = 0
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+url = input("Enter the url- ")
+data = urllib.request.urlopen(url, context=ctx).read()
+
+info = json.loads(data)
+print('Comment count:', len(info["comments"]))
+print(info)
+
+for item in info["comments"]:
+    tot = tot + int(item["count"])
+print("Sum is: ",tot)    
